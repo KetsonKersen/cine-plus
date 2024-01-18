@@ -1,14 +1,76 @@
+/*================| DEFUALT |==================*/
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   outline: none;
   font-family: 'Inter', sans-serif;
-  -webkit-tap-highlight-color: transparent;  
+  -webkit-tap-highlight-color: transparent;
+
+  --Color: #FF0000;
+  --Full-Black: #000;
+  --Full-White: #ffff;
+  
+  --Black1: #131313;
+  --Black2: #0C0C0C;
+  --Black3: #070707;
+
+  --Gray1: #515151;
+  --Gray2: #373737;
 }
 :root{
   font-size: 62.5%;
 }
 html,body{
   font-size: 1.6rem;
+  background-color: var(--Black2);
+  color: var(--Full-White);
+}
+button,input{
+  border: none;
+  color: var(--Full-White);
+  background-color: transparent;
+  cursor: pointer;
+}
+a{
+  color: var(--Full-White);
+  text-decoration: none;
+}
+/*================| ALINHAMENTOS |==================*/
+.max-width{
+  width: 100%;
+  max-width: 110rem;
+  margin: 0 auto;
+}
+.center-row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.center-col{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.between-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.between-col{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+/*================| BUTTONS |==================*/
+.card-button{
+  height: 4rem;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
 }
