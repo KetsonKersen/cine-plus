@@ -19,7 +19,7 @@ export const Slider_Style = styled.div`
         left: 0;
         background: rgb(12,12,12);
         background: linear-gradient(0deg, rgba(12,12,12,1) 1%, rgba(12,12,12,0) 80%);  
-        z-index: 1;
+     
     }
     .content-movie{
         width: 100%;

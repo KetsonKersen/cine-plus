@@ -4,6 +4,7 @@ import Home from "../pages/home/page"
 import Search from "../pages/search/page"
 import Profile from "../pages/profile/page"
 import NotFound from "../pages/notfound/page"
+import Movie from "../pages/movie/page"
 
 const Routs = ()=>{
     return(
@@ -13,6 +14,7 @@ const Routs = ()=>{
                    <Route index element={<Home/>}/>
                    <Route path="/search" element={<Search/>}/>
                    <Route path="/profile" element={<Profile/>}/>
+                   <Route path="/movie" element={<Movie/>}/>
                    <Route path="*" element={<NotFound/>}/>
                 </Route>
             </Routes>

@@ -67,7 +67,7 @@ a{
 
 /*================| BUTTONS |==================*/
 .card-button{
-  height: 4rem;
+  min-height: 4rem;
   padding: 1rem 2rem;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 1rem;

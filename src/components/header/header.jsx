@@ -12,6 +12,7 @@ const Header = ()=>{
     const navigate = useNavigate()
     const [state,setState] = useState('')
 
+
     const Submit = (event)=>{
         event.preventDefault()
         if(state !== ''){
@@ -20,26 +21,49 @@ const Header = ()=>{
         }
     }
 
-    return(
-        <Header_Style className="center-row">
-            <div className="max-width between-row">
-                <div className="container-btn-header">
-                    {location.pathname === '/profile' || location.pathname === '/search' ? <Link to="/"><button className="card-button"><FaArrowLeft size={18}/></button></Link> : ''}
-                    <button className="card-button">FILMES</button>
-                    <button className="card-button">SERIES</button>
-                </div>
-                {location.pathname === '/profile' ? '' : <div className="container-search-user">
+    const returnVisible = ()=>{
+        if(location.pathname !== '/'){
+            return <Link to="/"><button className="card-button"><FaArrowLeft size={18}/></button></Link>
+        }else{
+            return
+        }
+    }
+    const containerSearch = ()=>{
+        const search = ()=>{
+            if(location.pathname !== '/movie'){
+                return (
                     <form onSubmit={(e)=>Submit(e)}>
                         <label className="card-button">
                             <input type="text" value={state}  onChange={(e)=>setState(e.target.value)}/>
                             <button><FaSearch size={18}/></button>
                         </label>
                     </form>
-                    <Link to="/profile">
+                )
+            }
+        }
+
+        if(location.pathname === '/profile'){
+            return <button className="card-button"><IoMdSettings  size={18}/></button>
+        }else{
+            return(
+                <div className="container-search-user">
+                    {search()}
+                    <Link to={`/profile`}>
                         <button className="card-button"><FaUser size={18}/></button>
                     </Link>
-                </div>}
-                {location.pathname === '/profile' ? <button className="card-button"><IoMdSettings  size={18}/></button> : ''}
+                </div>
+            )
+        }
+
+    }
+
+    return(
+        <Header_Style className="center-row">
+            <div className="max-width between-row">
+                <div className="container-btn-header">
+                    {returnVisible()}
+                </div>
+                {containerSearch()}
             </div>
         </Header_Style>
     )
