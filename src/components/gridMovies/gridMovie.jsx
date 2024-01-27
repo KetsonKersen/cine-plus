@@ -16,19 +16,21 @@ const GridMovies = ()=>{
             const data = await SearchMovies(query)
             setState(data.results)
         }
-     
     }
 
     useEffect(()=>{
         preLoadGrid()
     },[query])
 
-    
     return(
         <GidMovie_Style id="grid">
+            {/* <div className="max-width container-order">
+                <p>Total encontrado: {state.length}</p>
+                <button>Order</button>
+            </div> */}
             <div className="max-width container-grid">
                 {state.length === 0 ? 
-                <p>Nad encontrado!</p> 
+                <p>nao encontrado</p>
                 : 
                 state.map((movie,index)=>{
                     return <div key={index}><CardMovie movie={movie} index={index}/></div>

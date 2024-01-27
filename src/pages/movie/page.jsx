@@ -4,6 +4,8 @@ import { GetMovieID, GetPeople, GetVideos} from "../../config/Get"
 import { Movie_Style } from "./style"
 import { API } from "../../config/API"
 import { FaStar } from "react-icons/fa"
+import Loading from "../../components/loading/Loading"
+const img = new Image()
 
 const Movie = ()=>{
     const [params] = useSearchParams()
@@ -16,10 +18,8 @@ const Movie = ()=>{
         const data_movies = await GetMovieID(ID)
         setCurrentMovie(data_movies)
 
-
         const data_videos = await GetVideos(ID)
         setIdVideos(data_videos.results[0])
-        console.log(idVideos)
 
         const data_cast = await GetPeople(ID)
         setCast(data_cast.cast)
@@ -29,7 +29,17 @@ const Movie = ()=>{
         setMovie()
     },[])
 
+    
+    const [stateLoading,setStateLoading] = useState(false)
+    img.src = API.image+currentMovie?.backdrop_path
+    img.onload = ()=>{
+        setStateLoading(true)
+    }
+  
+
+    
     return(
+        stateLoading ? 
         <Movie_Style>
             <div className="bg-movie center-col" style={{backgroundImage: `url(${API.image}${currentMovie?.backdrop_path})`}}>
                 <div className="max-width">
@@ -43,12 +53,12 @@ const Movie = ()=>{
                 </div>
             </div>
             <div className="container center-col">
-                {idVideos?.key && <>
-                    <h3 className="max-width">TRAILER</h3>
-                    <div className="max-width trailer">
-                        <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${idVideos?.key}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                </>}
+
+                <h3 className="max-width">TRAILER</h3>
+                <div className="max-width trailer">
+                    <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${idVideos?.key}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                
                 <h3 className="max-width">ELENCO</h3>
                 <div className="container-person">
                     <div className="content-perseon">
@@ -63,8 +73,9 @@ const Movie = ()=>{
                     </div>
                 </div>
             </div>
-            
         </Movie_Style>
+        :
+        <Loading/>
     )
 }
 export default Movie

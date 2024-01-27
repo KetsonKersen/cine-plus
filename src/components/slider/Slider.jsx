@@ -5,6 +5,7 @@ import {GetMoviesSlider} from "../../config/Get"
 import { useEffect, useState } from "react";
 import { API } from "../../config/API";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const IdMovies = ["872585","899445","695721"]
 const ListMovies = []
@@ -47,8 +48,8 @@ const Slider = ()=>{
                 <h3>{currentMovie?.title}</h3>
                 <p>{currentMovie?.overview}</p>
                 <div className="contaienr-btn">
-                    <button>Assistir</button>
-                    <button>Adicionar</button>
+                    <Link to={`/movie?id=${currentMovie?.id}`}>Assistir</Link>
+                    <Link>Adicionar</Link>
                 </div>
             </div>
             <button onClick={()=>ToggleSlider(+1)}><SlArrowRight size={45}/></button>

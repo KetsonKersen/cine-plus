@@ -5,8 +5,9 @@ export const Profile_Style = styled.section`
     .cover{
         width: 100%;
         height: 30rem;
-        background-color: red;
-        
+        background-color: gray;
+        margin-bottom: 10rem;
+
         & > div{
             position: relative;
             height: 100%;

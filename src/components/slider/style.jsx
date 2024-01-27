@@ -40,7 +40,7 @@ export const Slider_Style = styled.div`
             align-items: center;
             gap: 1rem;
             margin-top: 1rem;
-            button{
+            a{
                 width: 20rem;
                 height: 4rem;
                 border-radius: 1rem;
@@ -48,6 +48,9 @@ export const Slider_Style = styled.div`
                 font-size: 1.6rem;
                 color: var(--Black3);
                 transition: .3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
                 &:hover{
                     box-shadow: 0 0 7px 2px var(--Full-White);

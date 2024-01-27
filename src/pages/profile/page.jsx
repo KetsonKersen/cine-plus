@@ -1,6 +1,8 @@
 import { Profile_Style } from "./style"
 import capa from "../../assets/capa.png"
 import perfil from "../../assets/perfil.jpg"
+import Filter from "../../components/filter/Filter"
+
 const Profile = ()=>{
     return(
         <Profile_Style>
@@ -14,6 +16,7 @@ const Profile = ()=>{
 
                 </div>
             </div>
+            <Filter/>
         </Profile_Style>
     )
 }

@@ -36,6 +36,10 @@ a{
   color: var(--Full-White);
   text-decoration: none;
 }
+li{
+  list-style: none;
+}
+
 /*================| ALINHAMENTOS |==================*/
 .max-width{
   width: 100%;
