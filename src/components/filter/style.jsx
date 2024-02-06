@@ -12,14 +12,12 @@ export const Filter_Style = styled.section`
             font-size: 1.8rem;
             font-weight: 900;
             position: relative;
+            margin-left: -2rem;
 
             li{
                 padding: .5rem 2rem;
                 border-right: 1px solid var(--Gray2);
                 cursor: pointer;
-            }
-            li:first-of-type{
-                padding-left: 0;
             }
             li:last-of-type{
                 border-right: none;
@@ -34,10 +32,11 @@ export const Filter_Style = styled.section`
                 background-color: red;
                 border-radius: 6rem;
                 box-shadow: 0 0 12px 2px red;
-                transform: translate(-50% , 0);
+                transform: translate( 0 , 0);
                 position: absolute;
                 bottom: -.6rem;
-                left: 60px;
+                left: -2rem;
+                transition: .3s
             }
         }
     }
